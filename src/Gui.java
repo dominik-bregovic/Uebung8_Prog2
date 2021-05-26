@@ -36,11 +36,11 @@ public class Gui extends JFrame implements ActionListener {
         super.add(createTextLines(new JPanel(), 500, 200, 250, 50));
         super.add(createTextLines(new JPanel(), 500, 250, 250, 50));
         // here password textfield
-        super.add(createTextLines(new JPanel(), 500, 300, 250, 50));
-        super.add(createInfoForTextLines(new JPanel(),300, 200, 250, 50, "Username:"));
-        super.add(createInfoForTextLines(new JPanel(),300, 250, 250, 50, "E-mail:"));
-        super.add(createInfoForTextLines(new JPanel(),300, 300, 250, 50, "Password:"));
-        super.add(createInfoForTextLines(new JPanel(),300, 350, 250, 50, "Admin:"));
+        super.add(createPasswordLines(new JPanel(), 500, 300, 250, 50));
+        super.add(createInfoForTextLines(new JPanel(),400, 200, 100, 50, "Username:"));
+        super.add(createInfoForTextLines(new JPanel(),400, 250, 100, 50, "E-mail:"));
+        super.add(createInfoForTextLines(new JPanel(),400, 300, 100, 50, "Password:"));
+        super.add(createInfoForTextLines(new JPanel(),400, 350, 100, 50, "Admin:"));
         super.add(dataPanel);
         super.add(accountsPanel);
 
@@ -52,9 +52,9 @@ public class Gui extends JFrame implements ActionListener {
         label.setText(text);
         label.setHorizontalTextPosition(JLabel.CENTER);       //positioning text to image
         label.setVerticalTextPosition(JLabel.CENTER);            //positioning text to image
-        label.setForeground(Color.GREEN);
+        label.setForeground(Color.BLACK);
         label.setFont(new Font("MV Boli", Font.PLAIN, fontsize));
-        label.setBackground(Color.WHITE); //set Background color
+        //label.setBackground(Color.WHITE); //set Background color
         label.setOpaque(true);     //with this Background pixels are changed
         //label.setVerticalAlignment(JLabel.TOP); // set place of label only by BorderLayout
         //label.setHorizontalAlignment(JLabel.LEFT);
@@ -64,30 +64,30 @@ public class Gui extends JFrame implements ActionListener {
     }
 
     public JPanel createHeader(JPanel panel, int x, int y, int width, int height){
-        panel.setBackground(Color.WHITE);
+        //panel.setBackground(Color.WHITE);
         panel.setBounds(x, y, width, height);
         panel.add(createLabel(new JLabel(),"Fancy User Management", 30));
         return panel;
     }
 
     public JPanel createHeadLines(JPanel panel, int x, int y, int width, int height, String text){
-        panel.setBackground(Color.WHITE);
+        //panel.setBackground(Color.WHITE);
         panel.setBounds(x, y, width, height);
         panel.add(createLabel(new JLabel(),text, 20));
         return panel;
     }
 
     public JPanel createInfoForTextLines(JPanel panel, int x, int y, int width, int height, String text) {
-        panel.setBackground(Color.WHITE);
+        //panel.setBackground(Color.WHITE);
         panel.setBounds(x, y, width, height);
         panel.add(createLabel(new JLabel(),text, 20));
         return panel;
     }
 
     public JPanel createTextLines(JPanel panel, int x, int y, int width, int height){
-        panel.setBackground(Color.WHITE);
+        //panel.setBackground(Color.WHITE);
         panel.setBounds(x, y, width, height);
-        panel.add(createTextField(new JTextField(), 200, 20));
+        panel.add(createTextField(new JTextField(), 200, 25));
         return panel;
     }
 
@@ -95,6 +95,18 @@ public class Gui extends JFrame implements ActionListener {
 
         text.setPreferredSize(new Dimension(width, height));
         return text;
+    }
+
+    public JPanel createPasswordLines(JPanel panel, int x, int y, int width, int height){
+        //panel.setBackground(Color.WHITE);
+        panel.setBounds(x, y, width, height);
+        panel.add(createPasswordField(new JPasswordField(), 200, 25));
+        return panel;
+    }
+
+    public JPasswordField createPasswordField(JPasswordField field, int width, int height){
+        field.setPreferredSize(new Dimension(width, height));
+        return field;
     }
 
     public void createButton(){
